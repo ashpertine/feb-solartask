@@ -201,7 +201,7 @@ class TaskInputFrame(tk.Frame):
         def perform_search():
             search_date = entry.get()
             try:
-                result_list = task_manager.bst.find_before_due_date(task_manager.bst.root, search_date)
+                result_list = task_manager.bst.find_before_due_date(task_manager.bst.root, datetime.strptime(search_date, '%d/%m/%Y'))
                 for item in result_tree.get_children():
                     result_tree.delete(item)
                 if result_list:
